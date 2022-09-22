@@ -16,7 +16,6 @@ int fat(int n)
 
 }
 
-
 /*Implementacao de uma funcao arranjo - calcula o arranjo de n valores tomados k a k */
 int arr(int n, int k)
 {
