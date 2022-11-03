@@ -14,19 +14,35 @@ struct aluno {
 
 Aluno* preencheAluno(void);
 
-int main(void) {
-  FILE* fp;
-  Aluno* aluno;
-  printf("Exemplo com Arquivo Binário\n");
-  fp = fopen("arquivo.dat","ab");
-  if (fp == NULL) {
-    printf("Erro na criacao do arquivo\n!");
-    exit(1);
+  int main(void) {
+  Aluno* fulano;
+  int opcao;
+  printf("Programa Cadastro de Alunos\n\n");
+  opcao = menuPrincipal();
+  while (opcao != 0) {
+    switch (opcao) {
+      case 1 :  fulano = preencheAluno();
+                gravaAluno(fulano);
+                free(fulano);
+                break;
+      case 2 :  fulano = buscaAluno();
+                exibeAluno(fulano);
+                free(fulano);
+                break;
+      case 3 :  // Tente implementar esta função ;)
+                //;
+                break;
+      case 4 :  fulano = buscaAluno();
+                excluiAluno(fulano);
+                free(fulano);
+                break;
+      case 5 :  listaAlunos();
+                break;
+      case 6 :  listaAlunosPorCurso();
+                break;
+    }
+    opcao = menuPrincipal();
   }
-  aluno = preencheAluno();
-  fwrite(aluno, sizeof(Aluno), 1, fp);
-  fclose(fp);
-  free(aluno);
   return 0;
 }
 
