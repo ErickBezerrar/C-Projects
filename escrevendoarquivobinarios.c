@@ -13,8 +13,10 @@ struct aluno {
 };
 
 Aluno* preencheAluno(void);
+int menu_principal(void);
+void gravaAluno(Aluno*);
 
-  int main(void) {
+int main(void) {
   Aluno* fulano;
   int opcao;
   printf("Programa Cadastro de Alunos\n\n");
@@ -61,4 +63,16 @@ Aluno* preencheAluno(void) {
   scanf(" %40[^\n]", aln->email);
   aln->status = 'm';
   return aln;
+}
+
+void gravaAluno(Aluno* aln) {
+  FILE* fp;
+  fp = fopen("alunos.dat", "ab");
+  if (fp == NULL) {
+    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar este programa...\n");
+    exit(1);
+  }
+  fwrite(aln, sizeof(Aluno), 1, fp);
+  fclose(fp);
 }
