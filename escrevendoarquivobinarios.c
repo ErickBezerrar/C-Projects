@@ -48,6 +48,21 @@ int main(void) {
   return 0;
 }
 
+int menuPrincipal(void) {
+  int op;
+  printf("\nMenu Principal\n");
+  printf("1 - Cadastrar aluno\n");
+  printf("2 - Pesquisar aluno\n");
+  printf("3 - Alterar aluno\n");
+  printf("4 - Excluir aluno\n");
+  printf("5 - Listar alunos\n");
+  printf("6 - Listar alunos por curso\n");
+  printf("0 - Encerrar programa\n");
+  printf("Escolha sua opção: ");
+  scanf("%d", &op);
+  return op;
+}
+ 
 Aluno* preencheAluno(void) {
   Aluno* aln;
   aln = (Aluno*) malloc(sizeof(Aluno));
